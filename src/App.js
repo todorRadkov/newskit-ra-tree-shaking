@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {ThemeProvider, Tag, TagSize, theSunTheme, Play} from 'newskit';
+// import {Play} from 'newskit/icons';
+// import {ThemeProvider} from 'newskit/themes/emotion';
+// import {Tag, TagSize} from 'newskit/tag';
+// import {theSunTheme} from 'newskit/themes';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+export default class App extends React.Component {
+  render() {
+    return (
+      <ThemeProvider theme={theSunTheme}>
+        <Tag
+          href="http://example.com"
+          $size={TagSize.Medium}>
+            <Play />
+            Hello World
+        </Tag>
+      </ThemeProvider>
+    )
+  }
+};
